@@ -40,6 +40,7 @@
     [_targets compact];
     for (id target_ in _targets) {
         if (target_ == target) {
+            pthread_mutex_unlock(&lock);
             return;
         }
     }
@@ -53,6 +54,7 @@
     for (NSUInteger i = 0; i < _targets.count; i++) {
         if ([_targets pointerAtIndex:i] == (__bridge void * _Nullable)(target)) {
             [_targets removePointerAtIndex:i];
+            pthread_mutex_unlock(&lock);
             return;
         }
     }
