@@ -45,8 +45,8 @@
         [_proxyManager addTarget:_clickConfig];
         [_proxyManager addTarget:_cellConfig];
         
-        _tableView.delegate = _proxyManager;
-        _tableView.dataSource = _proxyManager;
+        _tableView.delegate = (id<UITableViewDelegate>)_proxyManager;
+        _tableView.dataSource = (id<UITableViewDataSource>)_proxyManager;
         
     }
     return _tableView;
